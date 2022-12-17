@@ -1,0 +1,12 @@
+# App
+
+HOST=localhost
+PORT=8000
+
+# Mongo DB
+DB_HOST = 127.0.0.1
+DB_PORT = 27017
+DB_NAME = studentManagment 
+
+# JWT 
+JWT_SECRET_KEY ="secretKey"
