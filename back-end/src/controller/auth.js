@@ -5,9 +5,7 @@ const { GENDER } = require("../const");
 const login = async (req, res) => {
     const { email, password } = req.body
     try {
-        console.log('req.body ', req.body)
         const userExist = await User.findOne({ email, deletedAt:null });
-        console.log('userExist ', userExist)
         if (!userExist) {
             return res.status(404).json({ message: "User Not Exist" });
         }
@@ -20,7 +18,6 @@ const login = async (req, res) => {
         res.cookie("access_token", token, {
             httpOnly: true,
             sameSite: "None",
-            // secure: true,
         });
         return res.status(200).json({ message: "Login Successfully!", data: userExist, access_token: token });
 
