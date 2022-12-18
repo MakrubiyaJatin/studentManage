@@ -5,8 +5,9 @@ const { GENDER } = require("../const");
 const login = async (req, res) => {
     const { email, password } = req.body
     try {
-
+        console.log('req.body ', req.body)
         const userExist = await User.findOne({ email, deletedAt:null });
+        console.log('userExist ', userExist)
         if (!userExist) {
             return res.status(404).json({ message: "User Not Exist" });
         }
